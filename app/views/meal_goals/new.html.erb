@@ -1,0 +1,49 @@
+<div class="w3-container" id="meal-goals">
+  <h1>Type in your base Macronutrient Goals</h1>
+  <div class="macronutrient-base-goals">
+    <label>
+      Carbs:
+      <input id="carb-base-goal" type="number" class="w3-input" />
+    </label>
+    <label>
+      Fat:
+      <input id="fat-base-goal" type="number" class="w3-input" />
+    </label>
+    <label>
+      Protein:
+      <input id="protein-base-goal" type="number" class="w3-input" />
+    </label>
+  </div>
+  <p>Remaining Values</p>
+  <div id="remaining-macros">
+    Carbs: 0 Fat: 0 Protein: 0 
+  </div>
+  <div class="new-meal-goals">
+    <p>
+      <span id="create-meal" class="w3-btn w3-green">Add Meal Goal</span>
+    </p>
+    <%= form_tag meal_goals_url, method: :post do |f| %>
+      <div class="meal-goal">
+        <h3>Meal 1</h3>
+        <label>
+          Carbs
+          <input class="carb-input" name="meal_goal[][carbs]" type="range" min="0" maximum="100" value="0"/>
+          <span>0</span>
+        </label>
+        <label>
+          Fat
+          <input class="fat-input" name="meal_goal[][fat]" type="range" min="0" maximum="100" value="0"/>
+          <span>0</span>
+        </label>
+        <label>
+          Protein
+          <input class="protein-input" name="meal_goal[][protein]" type="range" min="100" maximum="146" value="0"/>
+          <span>0</span>
+        </label>
+      </div>
+      <p>
+        <button type="submit" class="w3-btn w3-green">Save Goals</button>
+      </p>
+    <% end %>
+  </div>
+</div>

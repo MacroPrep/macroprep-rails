@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   resources :meals, only: [:new, :create]
+  resources :meal_goals, only: [:new, :create]
 
   root 'home#index'
   get '/about' => 'about#main'
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'

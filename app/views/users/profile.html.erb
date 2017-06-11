@@ -25,19 +25,40 @@
           <%= food.name %>
         </td>
         <td>
-          12
+          <%= food.carbs %>
         </td>
         <td>
-          2
+          <%= food.fat %>
         </td>
         <td>
-          2
+          <%= food.protein %>
         </td>
       </tr>
       <% end %>
     </tbody>
   </table>
   <% end %>
+  <table class="macronutrients-table">
+    <caption>Goals</caption>
+    <thead>
+      <tr>
+        <th>Meal</th>
+        <th>Carbs</th>
+        <th>Fat</th>
+        <th>Protein</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.meal_goals.each do |meal_goal| %>
+        <tr>
+          <td><%= meal_goal.name %></td>
+          <td><%= meal_goal.carbs %></td>
+          <td><%= meal_goal.fat %></td>
+          <td><%= meal_goal.protein %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
   <div class="w3-display-middle">
     <div class="w3-padding-large w3-center" style="background-color:white; border: solid black 3px">
       <h1 class="w3-center" style="font-size:400%">Let's Get Started</h1>

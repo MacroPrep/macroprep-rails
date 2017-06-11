@@ -1,4 +1,4 @@
-App = window.App || {};
+var App = window.App || {};
 
 App.NewMealForm = App.NewMealForm || {};
 
