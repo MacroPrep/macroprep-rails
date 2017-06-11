@@ -42,7 +42,7 @@ App.NewMealForm.addFoodItem = function() {
 
   var $newItem = $('<tr>', {class: 'food'}),
       $food = $('.food'),
-      namePrefix = `meal[food_attributes][${App.NewMealForm.currentFoodCount}]`,
+      namePrefix = `meal[foods_attributes][${App.NewMealForm.currentFoodCount}]`,
       $foodName = $('<input>', {type: 'text', name: `${namePrefix}[name]`, class: 'w3-input'}),
       $foodCarbs =  $('<input>', {type: 'number', name: `${namePrefix}[food_carbs]`, class: 'w3-input'}),
       $foodFat =  $('<input>', {type: 'number', name: `${namePrefix}[food_fat]`, class: 'w3-input'}),

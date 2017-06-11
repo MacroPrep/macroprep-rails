@@ -1,13 +1,15 @@
 class MealsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
-    @meal = Meal.new
+    @meal = current_user.meals.build
     @meal.foods = [Food.new]
   end
 
   def create
-    @meal = Meal.new(params)
+    @meal = current_user.meals.build(meal_params)
 
-    if @meal.valid?
+    if @meal.save
       redirect_to profile_path
     else
       render :new
@@ -15,5 +17,17 @@ class MealsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def meal_params
+    params.require(:meal).permit(
+      :name,
+      foods_attributes: [
+        :name,
+        :carbs,
+        :fat,
+        :protein
+      ]
+    )
   end
 end
