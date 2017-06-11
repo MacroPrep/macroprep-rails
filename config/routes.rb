@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :meals, only: [:new, :create]
+
   root 'home#index'
   get '/about' => 'about#main'
   devise_for :users, controllers: {

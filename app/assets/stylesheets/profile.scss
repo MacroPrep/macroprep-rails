@@ -1,0 +1,17 @@
+.macronutrients-table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  td, th {
+    padding: 5px;
+  }
+
+  input {
+    width: 100%;  
+    text-align: center;
+  }
+
+  .actions {
+    text-align: right;
+  }
+}

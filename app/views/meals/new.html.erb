@@ -1,0 +1,47 @@
+<div class="w3-container">
+  <%= form_for(@meal, id: 'new-meal-form') do |f| %>
+    <p>
+      <%= f.label :name, 'Meal Name' %>
+      <%= f.text_field :name, class: 'w3-input' %>
+    </p>
+    <table class="macronutrients-table">
+      <thead>
+        <tr class="w3-blue">
+          <th>Food</th>
+          <th>Carbs</th>
+          <th>Fat</th>
+          <th>Protein</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= f.fields_for :foods do |food_fields| %>
+          <tr class="food">
+            <td><%= food_fields.text_field :name, class: 'w3-input' %></td>
+            <td><%= food_fields.number_field :carbs, class: 'w3-input' %></td>
+            <td><%= food_fields.number_field :fat, class: 'w3-input' %></td>
+            <td><%= food_fields.number_field :protein, class: 'w3-input' %></td>
+            <td class="actions">
+              <span class="w3-btn w3-red remove-food-item">-</span>
+            </td>
+          </tr>
+        <% end %>
+        <tr>
+          <td colspan="5" class="actions">
+            <span id="add-meal" class="w3-btn w3-green">+</span>
+          </td>
+        </tr>
+        <tr id="new-meal-totals" class="w3-black">
+          <td>Total</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      <%= f.submit 'Create Meal', class: 'w3-btn w3-green' %>
+    </p>
+  <% end %>
+</div>

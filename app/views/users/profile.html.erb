@@ -1,7 +1,9 @@
 <div class="w3-container">
-  <table>
+  <% current_user.meals.includes(:foods).each do |meal| %>
+  <table class="macronutrients-table">
+    <caption><%= meal.name %></caption>
     <thead>
-      <tr>
+      <tr class="w3-blue">
         <th>
         </th>
         <th>
@@ -16,9 +18,10 @@
       </tr>
     </thead>
     <tbody>
+      <% meal.foods.each do |food| %>
       <tr>
         <td>
-          Oreos
+          <%= food.name %>
         </td>
         <td>
           12
@@ -30,6 +33,8 @@
           2
         </td>
       </tr>
+      <% end %>
     </tbody>
   </table>
+  <% end %>
 </div>
