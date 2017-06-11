@@ -27,5 +27,8 @@ module Macroprep
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Autoload all lib files
+    config.autoload_paths << Rails.root.join('lib')
   end
 end
