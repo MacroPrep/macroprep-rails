@@ -1,24 +1,36 @@
 <div class="w3-container">
-  <h2>Sign up here</h2>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+  <div class="w3-row">
+    <div class="w3-col m8">
+      <h1>Start Managine MacroNutrients Today</h1>
+      <ul>
+        <li>Get generated plans so that you always know what you need to achieve your goal!</li>
+        <li>Never miss your goals again when the unexpected comes along with your nutritional plans!</li>
+        <li>Set goals on a meal to meal basis, enabling you to get the nutrient distribution in a day that works for you!</li>
+      </ul>
+    </div>
+    <div class="w3-col m4">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <h1>Register</h1>
+        <%= devise_error_messages! %>
 
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, class: 'w3-input' %>
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, class: 'w3-input' %>
 
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "off", class: 'w3-input' %>
+
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'w3-input' %>
+
+        <p>
+          <%= f.submit "Sign up", class: 'w3-btn w3-teal' %>
+        </p>
       <% end %>
-      <%= f.password_field :password, autocomplete: "off", class: 'w3-input' %>
 
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'w3-input' %>
-
-      <p>
-        <%= f.submit "Sign up", class: 'w3-btn w3-teal' %>
-      </p>
-  <% end %>
-
-  <%= render "users/shared/links" %>
+      <%= render "users/shared/links" %>
+    </div>
+  </div>
 </div>
