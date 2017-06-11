@@ -1,4 +1,5 @@
-<div class="w3-container">
+<div class="w3-display-container">
+  <img src="https://farmviewmarket.com/wp-content/uploads/2017/03/meal-prrp.jpg" style="width:100%">
   <% current_user.meals.includes(:foods).each do |meal| %>
   <table class="macronutrients-table">
     <caption><%= meal.name %></caption>
@@ -37,7 +38,10 @@
     </tbody>
   </table>
   <% end %>
-  <div>
-    <%= link_to 'Create Meal', new_meal_path, class: 'w3-btn w3-green' %>
+  <div class="w3-display-middle">
+    <div class="w3-padding-large w3-center" style="background-color:white; border: solid black 3px">
+      <h1 class="w3-center" style="font-size:400%">Let's Get Started</h1>
+      <%= link_to 'Create A Plan', new_meal_path, class: 'w3-center w3-button w3-light-green', style: 'font-size:300%' %>
+    </div> 
   </div>
 </div>
